@@ -1,4 +1,4 @@
 var app = function () {
 
-    var name = "grunt-project-setup";
+    var name = "grunt-project-setup"
 };
