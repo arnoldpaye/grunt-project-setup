@@ -5,6 +5,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        // Configure clean
+        clean: {
+            folder: 'build'
+        },
         // Configure jshint to valite js files
         jshint: {
             options: {
@@ -45,6 +49,7 @@ module.exports = function (grunt) {
         }
     });
     // Load grunt plugins
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
@@ -52,5 +57,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Create create task
-    grunt.registerTask('default', ['jshint', 'uglify', 'less', 'cssmin']);
+    grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'less', 'cssmin']);
 };
