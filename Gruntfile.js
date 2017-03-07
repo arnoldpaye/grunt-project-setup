@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         // Configure uglify to minify js files
         uglify: {
             options: {
-                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd HH:mm") %> \n*/\n'
             },
             build: {
                 files: {
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         // Configure cssmin to minify css files
         cssmin: {
             options: {
-                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd HH:mm") %> \n*/\n'
             },
             build: {
                 files: {
@@ -50,4 +50,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
+
+    // Create create task
+    grunt.registerTask('default', ['jshint', 'uglify', 'less', 'cssmin']);
 };
