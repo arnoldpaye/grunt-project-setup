@@ -12,6 +12,17 @@ module.exports = function (grunt) {
             },
             // Files to lint
             build: ['Gruntfile.js', 'src/**/*.js']
+        },
+        // Configure uglify to minify js files
+        uglify: {
+            options: {
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+            },
+            build: {
+                files: {
+                    'build/js/app.min.js': ['src/js/app.js', 'src/js/test.js']
+                }
+            }
         }
     });
     // Load grunt plugins
