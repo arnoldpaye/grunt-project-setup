@@ -23,6 +23,14 @@ module.exports = function (grunt) {
                     'build/js/app.min.js': ['src/js/app.js', 'src/js/test.js']
                 }
             }
+        },
+        // Compile less stylesheet to css
+        less: {
+            build: {
+                files: {
+                    'build/css/app.min.css': 'src/css/app.less'
+                }
+            }
         }
     });
     // Load grunt plugins
