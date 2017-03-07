@@ -28,7 +28,18 @@ module.exports = function (grunt) {
         less: {
             build: {
                 files: {
-                    'build/css/app.min.css': 'src/css/app.less'
+                    'build/css/app.css': 'src/css/app.less'
+                }
+            }
+        },
+        // Configure cssmin to minify css files
+        cssmin: {
+            options: {
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+            },
+            build: {
+                files: {
+                    'build/css/app.min.css': 'build/css/app.css'
                 }
             }
         }
