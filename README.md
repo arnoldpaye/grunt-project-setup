@@ -1,5 +1,5 @@
-# grunt-proyect-setup
-Grunt proyect setup
+# grunt-project-setup
+Grunt project setup
 
 ## Installation
 ```sh
