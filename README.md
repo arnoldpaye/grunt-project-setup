@@ -7,7 +7,12 @@ npm install -g grunt
 npm install
 ```
 
-## Build
+## Development build
 ```sh
-grunt
+grunt dev
+```
+
+## Production build
+```sh
+grunt dev
 ```

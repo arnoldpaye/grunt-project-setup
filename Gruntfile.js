@@ -22,9 +22,14 @@ module.exports = function (grunt) {
             options: {
                 banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd HH:mm") %> \n*/\n'
             },
-            build: {
+            dev: {
                 files: {
-                    'build/js/app.min.js': ['src/js/app.js', 'src/js/test.js']
+                    'build/js/app.min.js': ['src/js/app.js']
+                }
+            },
+            prod: {
+                files: {
+                    'build/js/app.min.js': ['src/js/**/*.js']
                 }
             }
         },
@@ -56,6 +61,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    // Create create task
-    grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'less', 'cssmin']);
+    // Register dev task
+    grunt.registerTask('dev', ['clean', 'jshint', 'uglify:dev', 'less', 'cssmin']);
+    // Regster prod task
+    grunt.registerTask('prod', ['clean', 'jshint', 'uglify:prod', 'less', 'cssmin']);
 };
